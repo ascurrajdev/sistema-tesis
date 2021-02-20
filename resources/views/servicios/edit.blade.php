@@ -4,7 +4,7 @@
     @endpush
     <x-app-wrapper>
         <x-navbar-header />
-        <x-main-sidebar />
+        <x-main-sidebar-admin />
         <x-content-wrapper>
             <x-container-breadcrumb ruta="Agendamientos/Crear"/>
             <x-container>
@@ -13,7 +13,7 @@
                         <h3>Modificar servicio:</h3>
                     </x-slot>
                     <x-slot name="body">
-                        <form action="{{route('servicios.update',$servicio->id)}}" method="POST">
+                        <form action="{{route('admin.servicios.update',$servicio->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -32,7 +32,7 @@
                                 <i class="ion ion-edit"></i>
                                 Modificar
                             </button>
-                            <a href="{{route('servicios.index')}}" class="btn btn-info">
+                            <a href="{{route('admin.servicios.index')}}" class="btn btn-info">
                                 <i class="fas fa-chevron-left"></i>
                                 Back
                             </a>

@@ -24,6 +24,9 @@ class Empleado extends Model implements
         'name','email','password','telefono','role_id','avatar'
     ];
 
+    protected $with = [
+        'role'
+    ];
     public function role(){
         return $this->belongsTo('App\Models\Role');
     }

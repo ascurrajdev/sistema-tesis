@@ -4,7 +4,7 @@
     @endpush
     <x-app-wrapper>
         <x-navbar-header />
-        <x-main-sidebar />
+        <x-main-sidebar-admin />
         <x-content-wrapper>
             <x-container-breadcrumb ruta="Home/Dashboard" />
             <div class="container">
@@ -20,7 +20,7 @@
                             <div class="icon">
                                 <i class="ion ion-ios-calendar-outline"></i>
                             </div>
-                            <a href="{{route('agendamientos.index')}}" class="small-box-footer">Mas info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('admin.agendamientos.index')}}" class="small-box-footer">Mas info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
@@ -32,7 +32,7 @@
                             <div class="icon">
                                 <i class="ion ion-android-contact"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Mas info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('admin.usuarios.index')}}" class="small-box-footer">Mas info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
@@ -56,7 +56,7 @@
                             <div class="icon">
                                 <i class="ion ion-ios-pricetags-outline"></i>
                             </div>
-                            <a href="{{route('servicios.index')}}" class="small-box-footer">Mas info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('admin.servicios.index')}}" class="small-box-footer">Mas info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>

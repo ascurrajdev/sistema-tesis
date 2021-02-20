@@ -116,7 +116,7 @@ class RegisterController extends Controller
             "name" => $user->getName(),
             "email" => $user->getEmail(),
             "password" => Hash::make($user->getId()),
-            "proveedor_login_id" => ProveedorLogin::firstWhere("nombre",'=',$proveedor)->id,
+            "proveedor_login_id" => (ProveedorLogin::firstWhere("nombre",'like',"{$proveedor}"))->id,
             'avatar' => $user->getAvatar(),
         ));
         $userModel->email_verified_at = now();

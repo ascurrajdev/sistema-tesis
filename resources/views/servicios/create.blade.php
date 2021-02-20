@@ -4,7 +4,7 @@
     @endpush
     <x-app-wrapper>
         <x-navbar-header />
-        <x-main-sidebar />
+        <x-main-sidebar-admin />
         <x-content-wrapper>
             <x-container-breadcrumb ruta="Agendamientos/Crear"/>
             <x-container>
@@ -13,7 +13,7 @@
                         <h3>Crear servicio:</h3>
                     </x-slot>
                     <x-slot name="body">
-                        <form action="{{route('servicios.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin.servicios.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
@@ -34,7 +34,7 @@
                                 <i class="ion ion-edit"></i>
                                 Guardar
                             </button>
-                            <a href="{{route('servicios.index')}}" class="btn btn-info">
+                            <a href="{{route('admin.servicios.index')}}" class="btn btn-info">
                                 <i class="fas fa-chevron-left"></i>
                                 Back
                             </a>

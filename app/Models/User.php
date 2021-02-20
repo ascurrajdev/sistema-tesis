@@ -35,6 +35,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
+    protected $with = ['agendamientos'];
+
     /**
      * The attributes that should be cast to native types.
      *

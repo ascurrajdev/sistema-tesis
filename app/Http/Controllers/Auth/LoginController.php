@@ -93,6 +93,10 @@ class LoginController extends Controller
                     ));
     }
 
+    protected function loggedOut(Request $request){
+        Cache::flush();
+    }
+
     private function isAuthorized($userModel,$proveedor){
         return (strcmp(strtolower($userModel->proveedor->nombre),strtolower($proveedor)) == 0);
     }

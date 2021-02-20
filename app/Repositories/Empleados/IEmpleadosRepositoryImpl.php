@@ -5,6 +5,10 @@ use App\Models\Empleado;
 
 class IEmpleadosRepositoryImpl implements IEmpleadosRepository{
 
+    public function getAllEmpleados(){
+        return Empleado::paginate(25);
+    }
+
     public function getAllEmpleadosCount(){
         return (Empleado::all())->count();
     }

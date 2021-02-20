@@ -19,44 +19,49 @@
                 @endif
                 <x-card>
                     <x-slot name="header">
-                        <h3>Listado de servicios</h3>
+                        <h3>Listado de usuarios</h3>
                     </x-slot>
                     <x-slot name="body">
                         <table class="table table-striped table-borderless mb-5">
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Descripcion</th>
-                                    <th>Precio</th>
+                                    <th>Email</th>
+                                    <th>Reservaciones</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if(empty($servicios->count()))
+                                @if(empty($usuarios->count()))
                                     <tr>
                                         <td colspan="4">
                                             <h3>No hay registros</h3>
                                         </td>
                                     </tr>
                                 @endif
-                                @foreach($servicios as $servicio)
+                                @foreach($usuarios as $usuario)
                                     <tr>
-                                        <td>{{$servicio->titulo}}</td>
-                                        <td>{{$servicio->descripcion}}</td>
-                                        <td>Gs. {{number_format($servicio->precio)}}</td>
+                                        <td>{{$usuario->name}}</td>
+                                        <td>{{$usuario->email}}</td>
                                         <td>
-                                            <a href="{{route('admin.servicios.edit',$servicio->id)}}" class="btn btn-success">Modificar</a>
-                                            <form action="{{route('admin.servicios.destroy',$servicio->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">Eliminar</button>
-                                            </form>
+                                            <a href="#" class="btn btn-success">
+                                                {{$usuario->agendamientos_count}}
+                                                <i class="far fa-eye"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-success">
+                                                <i class="fas fa-user-edit"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-danger">
+                                                <i class="fas fa-user-times"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$servicios->links()}}
+                        {{$usuarios->links()}}
                     </x-slot>
                 </x-card>
             </x-container>

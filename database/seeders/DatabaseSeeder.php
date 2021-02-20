@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
         //     'descripcion' => 'Hospedaje',
         //     'precio' => 130000
         // ]);
-        // ProveedorLogin::factory(2)->state(new Sequence(
-        //     array("nombre"=>"Facebook"),
-        //     array("nombre"=>"Google")
-        // ))->create();
+        ProveedorLogin::factory(2)->state(new Sequence(
+            array("nombre"=>"Facebook"),
+            array("nombre"=>"Google")
+        ))->create();
     }
 }

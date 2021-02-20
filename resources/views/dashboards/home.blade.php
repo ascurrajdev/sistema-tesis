@@ -5,7 +5,7 @@
     @endpush
     <x-app-wrapper>
         <x-navbar-header />
-        <x-main-sidebar />
+        <x-main-sidebar-users />
         <x-content-wrapper>
             <x-container-breadcrumb ruta="Home/Dashboard" />
             <div class="container">
@@ -15,7 +15,6 @@
                         <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>{{auth_user()->agendamientos->count()}}</h3>
-
                                 <p>Reservas</p>
                             </div>
                             <div class="icon">
