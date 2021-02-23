@@ -53,6 +53,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         });
         Route::prefix('usuarios')->name('usuarios.')->group(function(){
             Route::get('','UsersController@index')->name('index');
+            Route::get('{user}/agendamientos','AgendamientosUsuariosController@index')->name('agendamientos.historial');
         });
         Route::prefix('servicios')->name('servicios.')->group(function(){
             Route::get('','ServiciosController@index')->name('index');
@@ -65,6 +66,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         });
         Route::prefix('empleados')->name('empleados.')->group(function(){
             Route::get('','EmpleadosController@index')->name('index');
+            Route::get('{empleado}/edit','EmpleadosController@edit')->name('edit');
+            Route::put('{empleado}','EmpleadosController@update')->name('update');
         });
     });
 });

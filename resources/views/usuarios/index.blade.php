@@ -28,7 +28,6 @@
                                     <th>Nombre</th>
                                     <th>Email</th>
                                     <th>Reservaciones</th>
-                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,19 +43,12 @@
                                         <td>{{$usuario->name}}</td>
                                         <td>{{$usuario->email}}</td>
                                         <td>
-                                            <a href="#" class="btn btn-success">
+                                            <a href="{{route('admin.usuarios.agendamientos.historial',$usuario->id)}}" class="btn btn-success">
                                                 {{$usuario->agendamientos_count}}
                                                 <i class="far fa-eye"></i>
                                             </a>
                                         </td>
-                                        <td>
-                                            <a href="#" class="btn btn-success">
-                                                <i class="fas fa-user-edit"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-danger">
-                                                <i class="fas fa-user-times"></i>
-                                            </a>
-                                        </td>
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>

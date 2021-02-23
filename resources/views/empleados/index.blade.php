@@ -47,12 +47,10 @@
                                         <td>{{$empleado->telefono}}</td>
                                         <td>{{$empleado->role->nombre}}</td>
                                         <td>
-                                            <a href="#" class="btn btn-success">
+                                            <a href="{{route('admin.empleados.edit',$empleado->id)}}" class="btn btn-success">
                                                 <i class="fas fa-user-edit"></i>
                                             </a>
-                                            <a href="#" class="btn btn-danger">
-                                                <i class="fas fa-user-times"></i>
-                                            </a>
+                                            
                                         </td>
                                     </tr>
                                 @endforeach
