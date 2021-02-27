@@ -35,7 +35,12 @@ class Empleado extends Model implements
         return $this->role->nombre == "Administrador";
     }
 
+    public function isAceptado(){
+        return $this->aceptado;
+    }
+
     public function routeNotificationForNexmo($notification){
         return $this->telefono;
     }
+
 }

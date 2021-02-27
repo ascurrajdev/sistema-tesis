@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Log;
+use Auth;
+use Cache;
 use App\Models\User;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 use App\Models\ProveedorLogin;
-use App\Models\Empleado;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Auth;
-use Log;
-use Cache;
+use App\Notifications\SendNotificationEmpleadoNuevoRegistrado;
+
 class RegisterController extends Controller
 {
     /*
@@ -131,21 +134,28 @@ class RegisterController extends Controller
 
     public function registerEmpleado(Request $request){
         Validator::make($request->all(),[
-            'nombre' => ['string','required'],
-            'email' => ['string','unique:empleados','email'],
-            'password' => ['string','min:8','confirmed'],
-            'telefono' => ['string','required']
+            'nombre' => ['required','string'],
+            'email' => ['required','string','unique:empleados','email'],
+            'password' => ['required','string','min:8','confirmed'],
+            'telefono' => ['required','string']
         ])->validate();
-        
        $empleado = Empleado::create([
-            'nombre' => $request->nombre,
+            'name' => $request->nombre,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'telefono' => $request->telefono,
             'role_id' => 1,
             'avatar' => "https://ui-avatars.com/api/?name={$request->nombre}"
        ]); 
-        return $empleado;
+       $administradores = Empleado::whereHas('role',function($query){
+            $query->where('nombre','=','administrador');
+        })
+        ->where('aceptado','=',true)
+        ->get();
+       Notification::send($administradores,new SendNotificationEmpleadoNuevoRegistrado($empleado));
+        return back()->with([
+            'registered' => "Usted ha sido registrado satisfatoriamente. Ahora espere a que se acepte su solicitud para iniciar session"
+        ]);
     }
 
     private function existsUser($user){

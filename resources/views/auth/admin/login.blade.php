@@ -10,7 +10,11 @@
         <div class="card">
             <div class="card-body login-card-body">
             <p class="login-box-msg">Iniciar session</p>
-
+            @if(session("noAceptado"))
+                <div class="alert alert-danger">
+                    {{session("noAceptado")}}
+                </div>
+            @endif
             <form action="{{url('/admin/login')}}" method="POST">
                 @csrf
                 <div class="input-group mb-3">

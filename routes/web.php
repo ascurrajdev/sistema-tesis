@@ -41,7 +41,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::post('login','Auth\LoginController@handleLoginAdmin');
     Route::get('register','Auth\RegisterController@showFormAdmin')->name('register');
     Route::post('register','Auth\RegisterController@registerEmpleado');
-    Route::middleware('auth:empleados')->group(function(){
+    Route::middleware(['auth:empleados','aceptado'])->group(function(){
         Route::get('home','HomeAdminController@index')->name('home');
         Route::prefix('agendamientos')->name('agendamientos.')->group(function(){
             Route::get('','AgendamientosController@index')->name('index');
