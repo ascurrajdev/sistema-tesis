@@ -21,7 +21,7 @@ class Empleado extends Model implements
     use HasFactory,Notifiable,Authorizable,CanResetPassword,MustVerifyEmail,Authenticatable;
 
     protected $fillable = [
-        'name','email','password','telefono','role_id','avatar'
+        'name','email','password','telefono','role_id','avatar','aceptado'
     ];
 
     protected $with = [

@@ -66,8 +66,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
         });
         Route::prefix('empleados')->name('empleados.')->group(function(){
             Route::get('','EmpleadosController@index')->name('index');
-            Route::get('{empleado}/edit','EmpleadosController@edit')->name('edit');
-            Route::put('{empleado}','EmpleadosController@update')->name('update');
+            Route::get('denegados','EmpleadosController@listadoEmpleadosSinAutorizacion')->name('noAutorizados');
+            Route::get('{empleado}/edit','EmpleadosController@edit')->where('empleado', '[0-9]+')->name('edit');
+            Route::put('{empleado}/autorizar','EmpleadosController@autorizarEmpleado')->where('empleado', '[0-9]+')->name('autorizar');
+            Route::put('{empleado}','EmpleadosController@update')->where('empleado', '[0-9]+')->name('update');
         });
     });
 });

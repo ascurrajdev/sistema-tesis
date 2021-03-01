@@ -19,6 +19,23 @@ class EmpleadosController extends Controller
         ]);
     }
 
+    public function listadoEmpleadosSinAutorizacion(){
+        return view("empleados.empleados-sin-autorizacion",[
+            "empleados" => $this->empleadoService->getAllDenegados()
+        ]);
+    }
+
+    public function autorizarEmpleado(Empleado $empleado,Request $request){
+        $empleado->update([
+            'aceptado' => true
+        ]);
+        return redirect()
+                        ->route('admin.empleados.noAutorizados')
+                        ->with([
+                            'autorizado' => 'El empleado fue autorizado'
+                        ]);
+    }
+
     public function edit(Empleado $empleado){
         return view("empleados.edit",[
             "empleado" => $empleado,
@@ -29,7 +46,7 @@ class EmpleadosController extends Controller
     public function update(Empleado $empleado,Request $request){
         Validator::make($request->all(),[
             "name" => ["required"],
-            "email" => ["required","email","unique:empleados"],
+            "email" => ["required","email"],
             "telefono" => ["required"],
             "role_id" => ["required","exists:roles,id"]
         ])->validate();

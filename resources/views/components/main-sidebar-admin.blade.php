@@ -79,6 +79,12 @@
                     Todos los empleados
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('admin.empleados.noAutorizados')}}" class="nav-link">
+                    <i class="nav-icon fas fa-user-shield"></i>
+                    Empleados sin autorizar
+                </a>
+            </li>
         </ul>
     </li>     
 </x-main-sidebar>

@@ -15,6 +15,10 @@ class EmpleadoService {
         return $this->empleadoRepository->getAllEmpleados();
     }
 
+    public function getAllDenegados(){
+        return $this->empleadoRepository->getAllEmpleadosNoAutorizados();
+    }
+
     public function getCount(){
         return $this->empleadoRepository->getAllEmpleadosCount();
     }
