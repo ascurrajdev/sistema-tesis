@@ -22,4 +22,10 @@
             </li>
         </ul>
     </li>
+    <li class="nav-item">
+        <a href="{{route('facturacion.listado')}}" class="nav-link">
+            <i class="nav-icon fas fa-file-invoice"></i>
+            Facturacion
+        </a>
+    </li>
 </x-main-sidebar>

@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::prefix('facturacion')->group(function(){
+        Route::get('all','DatosFacturacionUsersController@allDatosFacturacionFromUser');
+        Route::post('nuevo','DatosFacturacionUsersController@store');
+    });
 });
 Route::get('/agendamientos/list','AgendamientosController@getAllFechasReservadas')->name('agendamientos.list');
 Route::get('servicios','ServiciosController@indexApi');

@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function(){
         Route::get('payment/accept','AgendamientosController@handleCapturePayment')->name('accept');
         Route::get('payment/cancelled','AgendamientosController@handlePaymentCancelled')->name('cancelled');
     });
+    Route::prefix('facturacion')->name('facturacion.')->group(function(){
+        Route::get('','DatosFacturacionUsersController@index')->name('listado');
+    });
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){
