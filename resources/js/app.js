@@ -15,4 +15,7 @@ Vue.component('input-drag-and-drop',require('./components/Formularios/InputDragA
 Vue.component('form-datos-facturacion',require('./components/Facturacion/FormDatosFacturacion.vue').default)
 new Vue({
     el:'#app',
+    data:{
+        
+    }
 })

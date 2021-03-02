@@ -44,6 +44,11 @@ return [
         'client_id'=>env('PAYPAL_CLIENT_ID'),
         'client_secret'=>env('PAYPAL_CLIENT_SECRET')
     ],
+    'pagopar'=>[
+        'base_uri' => env('PAGOPAR_BASE_URI'),
+        'token_public'=>env('PAGOPAR_TOKEN_PUBLIC'),
+        'token_private'=>env('PAGOPAR_TOKEN_PRIVATE')
+    ],
     'nexmo'=>[
         'sms_from' => '595991631870'
     ]

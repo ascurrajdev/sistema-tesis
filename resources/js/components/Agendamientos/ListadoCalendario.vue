@@ -10,15 +10,6 @@ export default {
     components:{
         VueCal
     },
-    data:{
-
-    },
-    watch:{
-        
-    },
-    methods:{
-
-    },
 
 }
 </script>

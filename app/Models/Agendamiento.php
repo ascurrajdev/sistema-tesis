@@ -29,6 +29,10 @@ class Agendamiento extends Model
         return $this->hasMany('App\Models\HistorialAgendamiento');
     }
 
+    public function servicio(){
+        return $this->belongsTo("App\Models\Servicio");
+    }
+
     protected $dispatchesEvents = [
         'created' => AgendamientoCreated::class,
     ];

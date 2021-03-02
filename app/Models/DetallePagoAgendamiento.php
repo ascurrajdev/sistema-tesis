@@ -12,7 +12,7 @@ class DetallePagoAgendamiento extends Model
     use HasFactory;
 
     protected $fillable = [
-        'agendamiento_id','forma_pago_id','estado_pago_id','monto','transaccion_id'
+        'agendamiento_id','forma_pago_id','estado_pago_id','monto','transaccion_id',"hash_pedido"
     ];
 
     public function agendamiento(){

@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::post('nuevo','DatosFacturacionUsersController@store');
     });
 });
+Route::post('/agendamientos/payment','AgendamientosController@handleCapturePaymentDetails')->name('agendamientos.payment');
 Route::get('/agendamientos/list','AgendamientosController@getAllFechasReservadas')->name('agendamientos.list');
 Route::get('servicios','ServiciosController@indexApi');
 Route::post('servicios/upload','ServiciosController@uploadFiles');

@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function(){
         Route::get('','AgendamientosController@index')->name('index');
         Route::get('create','AgendamientosController@create')->name('create');
         Route::post('','AgendamientosController@store')->name('store');
-        Route::get('{agendamientoId}/pagar','AgendamientosController@handleRedirectPayment');
+        Route::get('{agendamiento}/pagar','AgendamientosController@handleRedirectPayment');
+        Route::get('payment/{hash}/details','AgendamientosController@handleDetailsPayment')->name('payment.details');
         Route::get('payment/accept','AgendamientosController@handleCapturePayment')->name('accept');
         Route::get('payment/cancelled','AgendamientosController@handlePaymentCancelled')->name('cancelled');
     });
